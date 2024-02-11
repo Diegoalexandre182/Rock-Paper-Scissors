@@ -1,23 +1,53 @@
-// Create the object with the game itens
+// Start the game
 
-// Create a round time number
+    // Create the object with the game itens
 
-// Create score count for the computer and for the player
+    // Create a round time number counter
 
-// Game starts one round
+    // Create score count for the computer and for the player
+    
+    // Loop the round X times
 
-// The computer roll the dice to choose one item
+        // Game starts one round
 
-// The player choose one item
+        // The computer roll the dice to choose one item
 
-// Game checks the round winner
+        // The player choose one item
 
-// Winner receive 1 point to its score
+        // Game checks the round winner
 
-// Loop the round X times
+        // Winner receive 1 point to its score
 
-// Game checks the score point winner 
+    // Game checks the score point winner 
 
-// Show game winner message
+    // Show game winner message
 
 // Asks to play again
+
+function playGame(){
+
+    const rpsItens = ["Rock", "Paper", "Scissors"]
+    const roundCounter = 5
+    const playerScore = 0
+    const computerScore = 0
+
+    for (let index = 0; index < roundCounter; index++) {
+        playRound()
+        
+    }
+    
+
+}
+
+function playRound(){
+    
+    // const playerChoice = prompt("type your choice:")
+    const computerChoice = getComputerChoice()
+    return console.log(computerChoice)
+
+}
+
+function getComputerChoice() {
+    let randomNum = Math.random();
+}
+playGame()

@@ -2,7 +2,7 @@
 
     // Create the object with the game itens
 
-    // Create a round time number counter
+    // Create a round times counter
 
     // Create score count for the computer and for the player
     
@@ -31,23 +31,95 @@ function playGame(){
     const playerScore = 0
     const computerScore = 0
 
+    function getComputerChoice() {
+        let randomNum = Math.random() * 3;
+        randomNum = Math.floor(randomNum);
+        let computerChoice = rpsItens[randomNum]
+        return computerChoice
+    }
+
+    function getPlayerChoice(){
+        let playerChoice = ""
+       
+        while (true) {
+            playerChoice = prompt("Choose one: (Rock, Paper or Scissors)")
+
+            if (playerChoice.length <= 3) {
+                alert("[!] type again")
+                
+            }else {
+
+                let char0 = playerChoice[0].toUpperCase()
+                playerChoice = playerChoice.toLowerCase()
+                playerChoice = playerChoice.replace(playerChoice.charAt(0), char0)
+
+                if (!rpsItens.includes(playerChoice)) {
+
+                    alert("[!] type again")
+                                     
+                } else{
+
+                    return playerChoice
+
+                }
+            }
+
+        }
+        
+    }
+
     for (let index = 0; index < roundCounter; index++) {
-        playRound()
+        playRound(getPlayerChoice(), getComputerChoice())
         
     }
     
 
-}
+    function playRound(player, computer){
 
-function playRound(){
+        console.log(`jogador ${player}, pc ${computer}`)
+        winnerIs(player, computer)
+
+        
+        
+        
+    }
     
-    // const playerChoice = prompt("type your choice:")
-    const computerChoice = getComputerChoice()
-    return console.log(computerChoice)
+    function winnerIs(player, computer){
+        
+        if(player == "Rock" ){
+            if (computer == "Paper") {
+                console.log("Paper beats Rock [Pc +1 Point]")
+            }else if (computer == "Scissors") {
+                console.log("Rock beats Scissors [Player +1 Point]")               
+            }else if(computer == "Rock"){
+                console.log("Draw")
+            }
+            
+        }
+
+        if (player == "Paper") {
+            if (computer == "Paper") {
+                console.log("Draw")
+            }else if (computer == "Scissors") {
+                console.log("Scissors beats Paper [Pc +1 Point]")               
+            }else if(computer == "Rock"){
+                console.log("Paper beats Rock [Player +1 Point]")
+            }
+            
+        }
+
+        if (player == "Scissors") {
+            if (computer == "Paper") {
+                console.log("Scissors beats Paper [Player +1 Point]")
+            }else if (computer == "Scissors") {
+                console.log("Draw")               
+            }else if(computer == "Rock"){
+                console.log("Rock beats Scissors [Pc +1 Point]")
+            }
+        }
+    }
 
 }
 
-function getComputerChoice() {
-    let randomNum = Math.random();
-}
+
 playGame()

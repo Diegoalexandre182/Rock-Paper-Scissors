@@ -22,14 +22,13 @@
 
     // Show game winner message
 
-// Asks to play again
 
 function playGame(){
 
     const rpsItens = ["Rock", "Paper", "Scissors"]
     const roundCounter = 5
-    const playerScore = 0
-    const computerScore = 0
+    let playerScore = 0
+    let computerScore = 0
 
     function getComputerChoice() {
         let randomNum = Math.random() * 3;
@@ -45,7 +44,7 @@ function playGame(){
             playerChoice = prompt("Choose one: (Rock, Paper or Scissors)")
 
             if (playerChoice.length <= 3) {
-                alert("[!] type again")
+                alert("[EMPTY] try again")
                 
             }else {
 
@@ -55,70 +54,83 @@ function playGame(){
 
                 if (!rpsItens.includes(playerChoice)) {
 
-                    alert("[!] type again")
+                    alert("[TYPO] try again")
                                      
                 } else{
 
                     return playerChoice
 
                 }
+
             }
 
         }
         
     }
 
-    for (let index = 0; index < roundCounter; index++) {
-        playRound(getPlayerChoice(), getComputerChoice())
-        
-    }
-    
-
-    function playRound(player, computer){
-
-        console.log(`jogador ${player}, pc ${computer}`)
-        winnerIs(player, computer)
-
-        
-        
-        
-    }
-    
     function winnerIs(player, computer){
         
         if(player == "Rock" ){
             if (computer == "Paper") {
                 console.log("Paper beats Rock [Pc +1 Point]")
+                computerScore ++
             }else if (computer == "Scissors") {
-                console.log("Rock beats Scissors [Player +1 Point]")               
+                console.log("Rock beats Scissors [Player +1 Point]")  
+                playerScore ++             
             }else if(computer == "Rock"){
-                console.log("Draw")
+                console.log("it's a tie!")
             }
             
         }
 
         if (player == "Paper") {
             if (computer == "Paper") {
-                console.log("Draw")
+                console.log("it's a tie!")
             }else if (computer == "Scissors") {
-                console.log("Scissors beats Paper [Pc +1 Point]")               
+                console.log("Scissors beats Paper [Pc +1 Point]") 
+                computerScore ++              
             }else if(computer == "Rock"){
                 console.log("Paper beats Rock [Player +1 Point]")
+                playerScore ++ 
             }
             
         }
-
+        
         if (player == "Scissors") {
             if (computer == "Paper") {
                 console.log("Scissors beats Paper [Player +1 Point]")
+                playerScore ++ 
             }else if (computer == "Scissors") {
-                console.log("Draw")               
+                console.log("it's a tie!")               
             }else if(computer == "Rock"){
                 console.log("Rock beats Scissors [Pc +1 Point]")
+                computerScore ++
             }
+
         }
     }
-
+    
+    function playRound(player, computer){
+        
+        console.log(`player ${player}, pc ${computer}`)
+        winnerIs(player, computer)
+         
+    }
+    
+    
+    for (let index = 0; index < roundCounter; index++) {
+        playRound(getPlayerChoice(), getComputerChoice())
+        
+    }
+    
+    if(playerScore > computerScore){
+        console.log("Player Wins")
+    }else if(computerScore > playerScore){
+        console.log("Computer wins")
+    }else if(computerScore == playerScore){
+        console.log("it's a tie!")
+    }
+    console.log(`scoreboard player ${playerScore} vs pc ${computerScore}`)
 }
 
 

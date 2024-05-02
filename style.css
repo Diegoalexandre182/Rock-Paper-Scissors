@@ -1,3 +1,40 @@
 *{
-    background-color: black;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+html,body{
+    height: 100%;
+    background-color: blue;
+}
+
+header{
+    background-color: aliceblue;
+    display: flex;
+    justify-content: center;
+}
+
+main{
+    background-color: gray;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    height: fit-content;
+    border: 1px solid black;
+}
+
+.selecBar{
+    background-color: rgb(78, 78, 78);
+    align-self: flex-end;
+    display: flex;
+    justify-content: center;
+}
+
+.rock,.paper,.scissors{
+    height: 100px;
+    width: 200px;
+    border: 1px solid black;
+
 }

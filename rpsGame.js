@@ -1,28 +1,3 @@
-// Start the game
-
-    // Create the object with the game itens
-
-    // Create a round times counter
-
-    // Create score count for the computer and for the player
-    
-    // Loop the round X times
-
-        // Game starts one round
-
-        // The computer roll the dice to choose one item
-
-        // The player choose one item
-
-        // Game checks the round winner
-
-        // Winner receive 1 point to its score
-
-    // Game checks the score point winner 
-
-    // Show game winner message
-
-
 function playGame(){
 
     const rpsItens = ["Rock", "Paper", "Scissors"]
@@ -41,8 +16,9 @@ function playGame(){
         let playerChoice = ""
        
         while (true) {
-            playerChoice = prompt("Choose one: (Rock, Paper or Scissors)")
 
+            playerChoice = prompt("Choose one: (Rock, Paper or Scissors)")
+            
             if (playerChoice.length <= 3) {
                 alert("[EMPTY] try again")
                 

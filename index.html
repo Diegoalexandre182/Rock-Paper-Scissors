@@ -7,15 +7,49 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <h1>Rock Paper Scissors</h1>
-    </header>
+    
     <main>
+        <header>
+            <button class="btnHeader btnStart">Start</button>
+            <h1>Rock Paper Scissors</h1>
+            <button class="btnHeader btnReset">Reset</button>
+        </header>
+        <section class="displayWrapper">
+
+            <div class="playerDisplay ">
+                <span class="pickTitle">Player</span>
+                <div class="playerPick pickImg"></div>
+                <div class="playerScore scoreBoard"></div>
+            </div>
+            
+            <div class="versus">
+                <span>VS</span>
+            </div>
+            
+            <div class="comDisplay ">
+                <span class="pickTitle">Computer</span>
+                <div class="comPick pickImg"></div>
+                <div class="comScore scoreBoard"></div>
+            </div>
+
+        </section>
+
+        <div class="statusGame">
+            <span>Waiting for the game start...</span>
+        </div>
+
+        <div class="gameRound">
+            <input type="number" class="gameRoundSelec" id="gameRoundSelec" value="5">
+            <button class="comBtn">Confirm</button>
+        </div>
+
         <div class="selecBar">
+
             <div class="rock"><p>Rock</p></div>
             <div class="paper"><p>Paper</p></div>
             <div class="scissors"><p>Scissors</p></div>
         </div>
     </main>
+
 </body>
 </html>

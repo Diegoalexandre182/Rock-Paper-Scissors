@@ -6,33 +6,124 @@
 }
 
 html,body{
+    padding: 2rem;
     height: 100%;
-    background-color: blue;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgb(217, 226, 233);
+}
+
+main{
+    background-color: gray;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border: 1px solid black;
+    border-radius: 3%;
+    overflow: hidden;
+    width: 550px;
+    max-height: 730px;
 }
 
 header{
     background-color: aliceblue;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
+    padding: 20px;
+    /* max-width: 850px; */
 }
 
-main{
-    background-color: gray;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    height: fit-content;
-    border: 1px solid black;
+.btnHeader {
+    font-size: 1rem;
+    padding: 5px 20px;
 }
+
+.displayWrapper{
+    border: 1px solid black;
+    background-color: forestgreen;
+    /* height: 300px; */
+    padding: 20px;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.playerDisplay {
+    /* background-color: palevioletred; */
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    
+}
+
+.pickImg {
+    border: 1px solid black;
+    height: 200px;
+    width: 170px;
+    margin: 10px;
+}
+
+.versus {
+    border: 1px solid black;
+    font-size: 2rem;
+    align-self: center;
+
+}
+
+.scoreBoard {
+    border: 1px solid black;
+    height: 50px;
+    width: 40px;
+}
+
+.statusGame {
+    align-self: center;
+    padding: 30px;
+}
+
+.gameRound {
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    /* height: 100px;
+    width: 80px; */
+    align-self: center;
+    display: none;
+}
+
+.gameRoundSelec {
+    font-size: 40px;
+    padding: 10px; 
+    text-align: center;
+    width: 80px;
+}
+
+.gameRoundSelec::-webkit-outer-spin-button,
+.gameRoundSelec::-webkit-inner-spin-button {
+    display: none;
+}
+
+.comBtn {
+    font-size: 20px;
+    margin-top: 10px;
+}
+
+
 
 .selecBar{
     background-color: rgb(78, 78, 78);
-    align-self: flex-end;
+    margin-top: auto;
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
+    width: 100%;
+    padding: 20px;
 }
 
-.rock,.paper,.scissors{
+.rock,
+.paper,
+.scissors{
     height: 100px;
     width: 200px;
     border: 1px solid black;

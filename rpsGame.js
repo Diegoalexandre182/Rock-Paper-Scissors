@@ -108,6 +108,4 @@ function playGame(){
     }
     console.log(`scoreboard player ${playerScore} vs pc ${computerScore}`)
 }
-
-
 playGame()

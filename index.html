@@ -10,17 +10,17 @@
     
     <main>
         <header>
-            <button class="btnHeader btnStart">Start</button>
+            <button class="btnGreen btnStart">Start</button>
             <h1>Rock Paper Scissors</h1>
-            <button class="btnHeader btnReset">Reset</button>
+            <button class="btnGreen btnReset">Reset</button>
         </header>
         <section class="displayWrapper">
 
             <div class="display ">
                 <span class="pickTitle">Player</span>
                 <div class="playerPick pickImg"></div>
-                <div class="playerScore scoreBoard">
-                    <span>0</span>
+                <div class="scoreBoard">
+                    <span class="playerScore">0</span>
                 </div>
             </div>
             
@@ -31,8 +31,8 @@
             <div class="display ">
                 <span class="pickTitle">Computer</span>
                 <div class="comPick pickImg"></div>
-                <div class="comScore scoreBoard">
-                    <span>0</span>
+                <div class="scoreBoard">
+                    <span class="comScore">0</span>
                 </div>
             </div>
 
@@ -43,8 +43,8 @@
         </div>
 
         <div class="gameRound">
-            <input type="number" class="gameRoundSelec" id="gameRoundSelec" value="5">
-            <button class="comBtn">Confirm</button>
+            <input type="number" class="gameRoundSelec" id="gameRoundSelec" placeholder="5" required min="1" max="100">
+            <button class="comBtn btnGreen">Confirm</button>
         </div>
 
         <div class="selecBar">

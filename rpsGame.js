@@ -1,7 +1,7 @@
 function playGame(){
 
     const rpsItens = ["Rock", "Paper", "Scissors"]
-    const roundCounter = 5
+     
     let playerScore = 0
     let computerScore = 0
 

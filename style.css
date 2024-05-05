@@ -20,7 +20,7 @@ main{
     flex-grow: 1;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     border: 2px solid rgba(146, 138, 138, 0.616);
     border-radius: 3%;
     overflow: hidden;
@@ -37,7 +37,7 @@ header{
     /* max-width: 850px; */
 }
 
-.btnHeader {
+.btnGreen {
     font-family: 'Courier New', Courier, monospace;
     font-size: 1rem;
     font-weight: 700;
@@ -48,13 +48,14 @@ header{
     border-radius: 4px;
 }
 
-.btnHeader:hover {
+.btnGreen:hover {
     background-color: rgba(33, 255, 33, 0.952);
     box-shadow: 0px 3px ;
+    cursor: pointer;
     
 }
 
-.btnHeader:active {
+.btnGreen:active {
     background-color: rgba(255, 255, 255, 0.103);
     box-shadow: 0px 3px ;   
     transform: translateY(4px); 
@@ -76,14 +77,20 @@ header{
 }
 
 .pickImg {
+    font-size: 6rem;
     height: 170px;
     width: 170px;
     margin: 10px;
-    background-color: rgb(237, 245, 240);
+    background-color: rgb(111, 151, 126);
     border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
     /* border: 3px solid rgb(128, 233, 128); WIN*/
     /* border: 3px solid rgb(211, 89, 89); LOSS */
 }
+
 .pickTitle {
     font-size: 1.5rem;
     font-family: 'Courier New', Courier, monospace;
@@ -115,7 +122,7 @@ header{
     /* border: 1px solid black; */
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    /* justify-content: center; */
     /* height: 100px;
     width: 80px; */
     align-self: center;
@@ -125,8 +132,10 @@ header{
 .gameRoundSelec {
     font-size: 40px;
     padding: 10px; 
+    margin-bottom: 10px;
     text-align: center;
     width: 80px;
+    align-self: center;
 }
 
 .gameRoundSelec::-webkit-outer-spin-button,
@@ -134,10 +143,7 @@ header{
     display: none;
 }
 
-.comBtn {
-    font-size: 20px;
-    margin-top: 10px;
-}
+
 
 .statusGame{
     font-family: 'Courier New', Courier, monospace;
@@ -162,6 +168,7 @@ header{
 }
 .iconGame:hover{
     box-shadow: 0px 6px ;
+    cursor: pointer;
 }
 .iconGame:active{
     background-color: rgba(255, 255, 255, 0.103);

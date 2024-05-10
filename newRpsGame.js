@@ -3,6 +3,7 @@ const iconGame = document.querySelectorAll('.iconGame')
 const gameRoundSelec = document.querySelector('.gameRoundSelec')
 const comBtn = document.querySelector('.comBtn')
 const btnStart = document.querySelector('.btnStart')
+const btnReset = document.querySelector('.btnReset')
 const playerScore = document.querySelector('.playerScore')
 const comScore = document.querySelector('.comScore')
 const rock = document.querySelector('.rock')
@@ -12,16 +13,19 @@ const rpsItens = ["Rock", "Paper", "Scissors"]
 let playerChoice = ''
 let playerPoint = 0
 let comPoint = 0
-let roundCounter = 0
+
 
 btnStart.addEventListener('click', displayGameRound) // Starts de game
 
-comBtn.addEventListener('click', ()=> getGameRound())
+btnReset.addEventListener('click', function() {
+window.location.reload()} )
+
+comBtn.addEventListener('click', ()=> toggleGameRound())
 
 gameRoundSelec.addEventListener('keydown',(evekey)=>{ // 
 if(evekey.key === 'Enter'){
     evekey.preventDefault()
-    getGameRound()
+    toggleGameRound()
 }})
 
 const statusGameUpt = txtStatus=>{ //Updates game status text
@@ -35,33 +39,49 @@ function displayGameRound(){ //Displays input round
     gameRoundSelec.focus()
 }
 
-function getGameRound(){ 
+function toggleGameRound(){ 
+
     const numRound = gameRoundSelec.value
 
-    if(numRound <= 0){
+    if(gameRoundSelec.value <= 0){
         statusGameUpt('Please enter a valid round number')
         gameRoundSelec.style.border = "5px solid red"
+        gameRoundSelec.style.outline = 'none'
         gameRoundSelec.focus()
         return
     }
     gameRound.style.display = 'none'   
-    displayIconBar()
-
+    startGame(numRound)
 }
 
-function displayIconBar(){
+
+function getPlayerChoice(act){
     
-    statusGameUpt('Choose one...')
+    if(act.innerText == rock.innerText){
+        playerChoice = 'Rock'
+        document.querySelector('.playerPick').innerHTML = rock.innerHTML
+        statusGameUpt('player choose Rock')
+    }
+    if(act.innerText == paper.innerText){
+        playerChoice = 'Paper'
+        document.querySelector('.playerPick').innerHTML = paper.innerHTML
+        statusGameUpt('player choose Paper')
+    }
+    if(act.innerText == scissors.innerText){
+        playerChoice = 'Scissors'
+        document.querySelector('.playerPick').innerHTML = scissors.innerHTML
+        statusGameUpt('player choose Scissors')
+    }
     
-    iconGame.forEach(element => {
-        element.style.display = 'flex'
-    })
+    return playerChoice
 }
 
 function getComputerChoice() {
+    
     let randomNum = Math.random() * 3;
     randomNum = Math.floor(randomNum);
     let computerChoice = rpsItens[randomNum]
+    
     if(computerChoice == 'Rock') {  
         document.querySelector('.comPick').innerHTML = rock.innerHTML
     }   
@@ -74,32 +94,8 @@ function getComputerChoice() {
     return computerChoice
 }
 
-iconGame.forEach(element => {
-    element.addEventListener('click', (act)=>{
-        if(act.target.innerText == rock.innerText){
-            playerChoice = 'Rock'
-            document.querySelector('.playerPick').innerHTML = rock.innerHTML
-            statusGameUpt('player choose Rock')
-        }
-        if(act.target.innerText == paper.innerText){
-            playerChoice = 'Paper'
-            document.querySelector('.playerPick').innerHTML = paper.innerHTML
-            statusGameUpt('player choose Paper')
-        }
-        if(act.target.innerText == scissors.innerText){
-            playerChoice = 'Scissors'
-            document.querySelector('.playerPick').innerHTML = scissors.innerHTML
-            statusGameUpt('player choose Scissors')
-        }
-        roundCounter++
-        console.log(roundCounter)
-        winnerIs(playerChoice, getComputerChoice())
-        
-    })
-})
-
-function winnerIs(playerChoice, computerChoice){
-        
+function getRoundPoint(playerChoice, computerChoice){
+    
     if(playerChoice == "Rock" ){
         if (computerChoice == "Paper") {
             statusGameUpt("Paper beats Rock")
@@ -119,7 +115,7 @@ function winnerIs(playerChoice, computerChoice){
             document.querySelector('.playerPick').style.border = 'none'
         }
     }
-
+    
     if (playerChoice == "Paper") {
         if (computerChoice == "Paper") {
             statusGameUpt("Draw")
@@ -159,6 +155,43 @@ function winnerIs(playerChoice, computerChoice){
             document.querySelector('.comPick').style.border = '4px solid rgb(128, 233, 128)' 
         }
     } 
+    return [playerPoint, comPoint]
 }
 
+function startGame(numRound){
+    
+    statusGameUpt('Choose one...')
+    let roundCounter = 0
+    
+    iconGame.forEach(element => {
+        element.style.display = 'flex'
+        element.addEventListener('click', (e) => winnerIs(getRoundPoint(getPlayerChoice(e.target), getComputerChoice())))
+        
+    })
+    
+    function winnerIs(array){
+        roundCounter++
+        document.querySelector('.roundTracker').innerText = `Round ${roundCounter} of ${numRound}`
+        document.querySelector('.playerScore').innerText = array[0]
+        document.querySelector('.comScore').innerText = array[1]
+
+        if (roundCounter >= Number(numRound)) {
+            iconGame.forEach(element => {
+                element.style.display = 'none'
+            })   
+
+            if(playerPoint > comPoint){
+                statusGameUpt("Player Wins")         
+            }
+
+            if(comPoint > playerPoint){
+                statusGameUpt("Computer wins")
+            }
+
+            if(comPoint == playerPoint){
+                statusGameUpt("Draw Game !")
+            }
+        }
+    }
+}123
 

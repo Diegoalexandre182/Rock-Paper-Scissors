@@ -15,7 +15,7 @@ let playerPoint = 0
 let comPoint = 0
 
 
-btnStart.addEventListener('click', displayGameRound) // Starts de game
+btnStart.addEventListener('click', displayGameRound) 
 
 btnReset.addEventListener('click', function() {
 window.location.reload()} )
@@ -28,11 +28,11 @@ if(evekey.key === 'Enter'){
     toggleGameRound()
 }})
 
-const statusGameUpt = txtStatus=>{ //Updates game status text
+const statusGameUpt = txtStatus=>{ 
     document.querySelector('.statusGame').textContent = txtStatus
 }
 
-function displayGameRound(){ //Displays input round
+function displayGameRound(){ 
     btnStart.disabled = true
     statusGameUpt('Choose how many rounds below')
     gameRound.style.display = 'flex'
@@ -193,5 +193,5 @@ function startGame(numRound){
             }
         }
     }
-}123
+}
 

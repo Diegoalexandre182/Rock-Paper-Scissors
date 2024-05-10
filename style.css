@@ -2,7 +2,6 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-
 }
 
 html,body{
@@ -11,17 +10,17 @@ html,body{
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: rgb(87, 114, 134);
+    background-color: rgb(71, 67, 67);
 }
 
 main{
-    background-color: rgb(255, 253, 253);
+    background-color: rgb(29, 28, 28);
     box-shadow: 0px 4px 10px rgba(29, 26, 26, 0.514);
     flex-grow: 1;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    border: 2px solid rgba(146, 138, 138, 0.616);
+    border: 2px solid rgb(253, 202, 39);
     border-radius: 3%;
     overflow: hidden;
     width: 550px;
@@ -29,12 +28,11 @@ main{
 }
 
 header{
-    background-color: rgb(88, 166, 235);
+    background-color: rgb(235, 225, 88);
     display: flex;
     justify-content: space-between;
     padding: 20px;
     color: rgba(8, 8, 8, 0.712);
-    /* max-width: 850px; */
 }
 
 .btnGreen {
@@ -42,7 +40,7 @@ header{
     font-size: 1rem;
     font-weight: 700;
     padding: 5px 20px;
-    background-color: rgba(47, 231, 47, 0.733);
+    background-color: rgb(253, 202, 39);
     outline: none;
     border: 1px solid black;
     border-radius: 4px;
@@ -52,7 +50,6 @@ header{
     background-color: rgba(33, 255, 33, 0.952);
     box-shadow: 0px 3px ;
     cursor: pointer;
-    
 }
 
 .btnGreen:active {
@@ -61,19 +58,15 @@ header{
     transform: translateY(4px); 
 }
 .displayWrapper{
-    /* background-color: forestgreen; */
-    /* height: 300px; */
     padding: 20px;
     display: flex;
     justify-content: space-evenly;
 }
 
 .display {
-    /* background-color: palevioletred; */
     display: flex;
     flex-direction: column;
     align-items: center;
-    
 }
 
 .pickImg {
@@ -81,14 +74,11 @@ header{
     height: 170px;
     width: 170px;
     margin: 10px;
-    background-color: rgb(111, 151, 126);
+    background-color: rgba(107, 119, 112, 0.336);
     border-radius: 5px;
     display: flex;
     justify-content: center;
     align-items: center;
-
-    /* border: 3px solid rgb(128, 233, 128); WIN*/
-    /* border: 3px solid rgb(211, 89, 89); LOSS */
 }
 
 .pickTitle {
@@ -99,32 +89,28 @@ header{
 .versus {
     font-size: 2rem;
     align-self: center;
-
 }
 
 .scoreBoard {
     font-size: 3rem;
-    color: rgb(0, 0, 0);
+    color: rgb(238, 226, 226);
     display: flex;
     justify-content: center;
     align-items: center;
-    
     height: 50px;
     width: 40px;
 }
 
 .statusGame, .roundTracker {
     align-self: center;
-    /* padding: 30px; */
+    color: rgba(255, 255, 255, 0.808);
+    font-family: 'Courier New', Courier, monospace;
 }
 
 .gameRound {
-    /* border: 1px solid black; */
+
     display: flex;
     flex-direction: column;
-    /* justify-content: center; */
-    /* height: 100px;
-    width: 80px; */
     align-self: center;
     display: none;
 }
@@ -151,7 +137,7 @@ header{
 }
 
 .selecBar{
-    background-color: rgb(91, 141, 139);
+    background-color: rgb(59, 59, 59);
     margin-top: auto;
     display: flex;
     justify-content: space-around;
@@ -160,7 +146,7 @@ header{
 }
 
 .iconGame{
-    background-color: rgba(63, 43, 43, 0.342);
+    background-color: rgba(111, 143, 51, 0.767);
     border: outset;
     border-radius: 10px;
     font-size: 5rem;
